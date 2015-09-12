@@ -1,0 +1,7 @@
+DataFrames cheat sheet
+head(datasetname, nrows)
+tail(datasetname, nrows)
+
+head(datasetname[:varname, :varname2, etc.])
+
+datasetname[datasetname[:varname] .== "value", :]
