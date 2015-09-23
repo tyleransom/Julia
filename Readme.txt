@@ -10,3 +10,4 @@ This is a repository designed to introduce basic Julia applications for economet
 - loopVsMatmul: a speed test for matrix multiplication in loop versus vectorized form
 - mlogit: Vestigial version of JuMP/mlogit/, before I discovered JuMP
 - ols: basic OLS in Julia
+- save: simple example for reading .mat (Matlab) files into Julia and saving Julia objects into .mat files
