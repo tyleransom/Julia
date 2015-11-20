@@ -19,19 +19,20 @@ err    = olsobjfun(bAns)
 errmat = olsobjfunIndiv(bAns)
 
 # Calculate gradient
-grad = ForwardDiff.gradient(olsobjfun,bAns)
-# compare analytical gradient with ForwardDiff.gradient:
-println(cat(2,-2*X'*(Y-X*bAns),grad))
-# Calculate hessian
-hess = ForwardDiff.hessian(olsobjfun,bAns)
-# compare analytical gradient with ForwardDiff.gradient:
-println(cat(1,2*X'*X,hess))
-# hess = ForwardDiff.hessian(olsobjfun,bAns)
-# compare analytical gradient with ForwardDiff.gradient:
-indivGrad = zeros(n,length(bAns))
-for i=1:n
-	indivGrad[i,:] = -2*X[i,:]'*(Y[i]-X[i,:]*bAns)
-end
-# jac  = ForwardDiff.jacobian(olsobjfun,grad)
-# println(grad)
-# size(jac)
+@time grad = ForwardDiff.gradient(olsobjfun,bAns)
+@time gradIndiv = ForwardDiff.jacobian(olsobjfunIndiv,bAns)
+# # compare analytical gradient with ForwardDiff.gradient:
+# # println(cat(2,-2*X'*(Y-X*bAns),grad))
+# # Calculate hessian
+# @time hess = ForwardDiff.hessian(olsobjfun,bAns)
+# # compare analytical gradient with ForwardDiff.gradient:
+# # println(cat(1,2*X'*X,hess))
+# # hess = ForwardDiff.hessian(olsobjfun,bAns)
+# # compare analytical gradient with ForwardDiff.gradient:
+# indivGrad = zeros(n,length(bAns))
+# for i=1:n
+	# indivGrad[i,:] = -2*X[i,:]'*(Y[i]-X[i,:]*bAns)
+# end
+# # jac  = ForwardDiff.jacobian(olsobjfun,grad)
+# # println(grad)
+# # size(jac)
