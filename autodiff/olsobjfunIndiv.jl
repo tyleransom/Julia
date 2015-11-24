@@ -1,4 +1,4 @@
 function olsobjfunIndiv(beta)
-	err = (Y-X*beta).^2
+	err = vec((Y-X*beta)).^2.0
 	return err
 end

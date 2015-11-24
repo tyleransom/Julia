@@ -29,10 +29,10 @@ errmat = olsobjfunIndiv(bAns)
 # # println(cat(1,2*X'*X,hess))
 # # hess = ForwardDiff.hessian(olsobjfun,bAns)
 # # compare analytical gradient with ForwardDiff.gradient:
-# indivGrad = zeros(n,length(bAns))
-# for i=1:n
-	# indivGrad[i,:] = -2*X[i,:]'*(Y[i]-X[i,:]*bAns)
-# end
+indivGrad = zeros(n,length(bAns))
+for i=1:n
+	indivGrad[i,:] = -2*X[i,:]'*(Y[i]-X[i,:]*bAns)
+end
 # # jac  = ForwardDiff.jacobian(olsobjfun,grad)
 # # println(grad)
 # # size(jac)
